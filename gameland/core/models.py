@@ -9,3 +9,6 @@ class Character(models.Model):
     ability_damage = models.IntegerField()
     armor = models.IntegerField()
     image = models.ImageField(upload_to='character', null=True)
+
+    def __str__(self) -> str:
+        return self.name

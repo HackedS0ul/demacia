@@ -12,15 +12,20 @@
       <ul class="row">
         {% for object in obj %}
         <li class="col-12 col-md-6 col-lg-3">
-            <div class="cnt-block equal-hight" style="height: 349px;">
+            <div class="cnt-block equal-hight" style="height: 365px;">
               <figure><img src="{{object.image.url}}" class="img-responsive" alt=""></figure>
               <h3><a href="">{{object.name}}</a></h3>
               <p>{{object.class_name}}</p>
               <ul class="follow-us clearfix">
+                {% if object.attack_damage > object.ability_damage %}
                 <li><img src="{% static 'images/sword-spin.png' %}" style="width:20px; height:20px;" ><br>{{object.attack_damage}}</li>
-                <li><img src="{% static 'images/crescent-staff.png' %}" style="width:20px; height:20px;" ><br>{{object.ability_power}}</li>
+                {% endif%}
+                {% if object.ability_damage > object.attack_damage %}
+                <li><img src="{% static 'images/crescent-staff.png' %}" style="width:20px; height:20px;" ><br>{{object.ability_damage}}</li>
+                {% endif %}
                 <li><img src="{% static 'images/armor-punch.png' %}" style="width:20px; height:20px;" ><br>{{object.armor}}</li>
-                <li><button type="submit" style="color:red;">Select</button></li>
+                <br>
+                <li><button type="submit" style="background-color:red; border:none; color:#fff;">Select</button></li>
               </ul>
             </div>
         </li>
